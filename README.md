@@ -20,15 +20,15 @@ The purpose of this document is to describe common approach to requirements crea
 |-|-|
 |__Role__|**PM/TL**|
 |__Responsibility__|Information regarding proposals which have to be implemented is sent to PM through Slack.|
-|__Tasks__||
+|__Tasks__|Sending team estimations basing on proposal or detailed document for proposal to Customer. |
 |__Role__|**Business Analyst**|
-|__Responsibility__||
-|__Tasks__||
+|__Responsibility__|Depending on proposal clarity set of user stories might be created.<br>User story is Requirement issue on GitHub that can be find here: https://github.com/smartdevicelink/sdl_requirements/issues.<br>In each requirement issue detailed document is linked with the use case, use cases reviewed by proposal author are merged in here: https://github.com/smartdevicelink/sdl_requirements/tree/master/detailed_docs <br> Basing on proposal or detailed document for proposal team makes estimations which are being sent to Customer.<br>Business Analyst is responsible for the eliciting, collecting, documenting, analyzing, prioritizing, tracing and maintaining all-level requirements throughout the project.<br>Participates in reviews of requirement’s artifacts.<br>Perform planning and estimation of own requirements management activities.|
+|__Tasks__|- Elicit requirements using interviews, document analysis,use cases, scenarios, event lists, business analysis, task and workflow analysis, communication with stakeholders and team.<br> - Write requirements specifications according to project-specific templates, using natural language simply, clearly, unambiguously, and concisely.<br> - Decompose high-level requirements into functional requirements. <br> - Perform requirements analysis and verification, ensuring that requirement statements are complete, consistent, concise, comprehensible, traceable, feasible, unambiguous, and verifiable, and that they conform to standards.<br> - Manage requirements traceability information according to project-specific standards.<br> - Perform project related actions (estimations, planning, participation in audits etc.) on PM's delegation. <br> - Work with the project team and project manager to document the product's vision and the project's scope.|
 |__Role__|**CCB**|
-|__Responsibility__||
+|__Responsibility__|Decides on accepting/rejecting requirements for further technical analysis from schedule.<br>Reviews and accepts changes to requirements’ baseline on the project.|
 |__Tasks__||
-|__Role__|**Domain Expert**|
-|__Responsibility__||
+|__Role__|**Domain Expert**<br> _NOTE: Architect, Test Engineer or Senior Developer may act as Domain Expert._|
+|__Responsibility__|Drive technical solutions in frame of requirements analysis on the project.|
 |__Tasks__||
 
 ### Process Activities
