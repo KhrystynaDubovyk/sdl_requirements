@@ -59,3 +59,29 @@ The use case might thus be confined to a single or simple task flow.
 An understanding of the user's goal here is built into the use case.  
 One differentiator for the use case is that there can be more than one for a feature.  
 It's useful to check several use cases for the same feature to understand how that feature might fail to satisfy all the possible user needs.
+
+Still confused? Maybe a more tangible real-life example will help. . .
+
+**Scenario:**
+
+Josh is a 30 something mid-level manager for an ad agency, metro-sexual and beer aficionado. He likes to try new and exotic beers in trendy locations. He also enjoys using a variety of social apps on his smart phone. He reads a review on Yelp of a new burger & beer joint downtown with over 100 beers on tap, and decides to go walk over after work and check it out.
+
+**User Story:**
+
+A user must want to find a bar and drink a beer.
+
+**Use Case:**
+
+Customer walks to the restaurant
+
+Customer enters the restaurant
+Customer finds a seat at the bar
+
+Customer scans the menu
+Customer selects a beer
+Customer orders selected beer
+Bartender takes order
+Bartender pours beer
+Bartender delivers beer
+User drinks beer
+User pays for beer

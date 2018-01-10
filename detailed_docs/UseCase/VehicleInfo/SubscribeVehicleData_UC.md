@@ -25,6 +25,7 @@ _Expected:_
 9. HMI sends the notification to SDL with the changes in VehicleData
 10. SDL transfers the notification to subscribed application
 
+_[please see the respective TRS]()_ 
 
 **Exception 1**
 
@@ -32,17 +33,22 @@ _Expected:_
 
 2.a.2 SDL responds INVALID_DATA, success:false to mobile application and doesn't subscribe to vehicle data change notifications
 
+_[please see the respective TRS]()_ 
+
 **Exception 2**
 
 3.a.1 Request is not allowed by Policies
 
 3.a.2 SDL responds DISALLOWED, success:false to mobile app and doesn't subscribe to vehicle data change notifications  
 
+_[please see the respective TRS]()_ 
+
 **Exception 3**  
 6.a.1 SDL receives erroneous result from HMI for the parameter  
 
 6.a.2 SDL responds success:false to mobile application and doesn't store the param in list
 
+_[please see the respective TRS]()_ 
 ## Use Case 2: Mobile application is already subscribed to VehicleData
 
 **Main Flow:**
@@ -64,6 +70,7 @@ _Expected:_
 2. SDL responds with result code IGNORED, success:false to mobile application
 3. SDL keeps the subscription status of the application unchanged
 
+_[please see the respective TRS]()_ 
 
 **Alternative flow**  
 
@@ -75,4 +82,6 @@ _Expected:_
 
 1.a.3 SDL doesn't transfer new subscription request to HMI  
 
-1.a.4 SDL transfers stored in SDL list VehicleData parameters to mobile application_2  
+1.a.4 SDL transfers stored in SDL list VehicleData parameters to mobile application_2 
+
+_[please see the respective TRS]()_ 

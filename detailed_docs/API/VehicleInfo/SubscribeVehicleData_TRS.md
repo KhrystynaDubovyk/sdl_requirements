@@ -1,6 +1,6 @@
 ## Functional Requirements
 
-1.
+#### 1.
 In case app_1 sends SubscribeVehicleData (param_1) to SDL   
 
 and SDL does not have this param_1 in list of stored successfully subscribed params  
@@ -12,7 +12,7 @@ SDL must:
 SDL must store this param in list 
 - respond with corresponding result SUCCESS received from HMI to app_1
 
-2.  
+#### 2.  
 In case app_1 sends SubscribeVehicleData (param_1) to SDL  
 
 and SDL does not have this param_1 in list of stored successfully subscribing params  
@@ -23,7 +23,7 @@ SDL must:
 SDL must NOT store the parameter in SDL list   
 - respond SubscribeVehicleData (Result Code, success:false) to app_1
 
-3.  
+#### 3.  
 In case app_2 sends SubscribeVehicleData (param_1, param_2) to SDL  
 
 and  SDL has already successfully subscribed app_1 to param_1 and param_2  
@@ -33,7 +33,7 @@ SDL must:
 - NOT send SubscribeVehicleData(param_1, param_2) to HMI  
 - respond via SubscribeVehicleData (SUCCESS) to app_2  
 
-4.
+#### 4.
 In case mobile application sends SubscribeVehicleData_request  
 
 that is NOT included (omitted) in the PolicyTable group(s) assigned to the application  
@@ -41,7 +41,7 @@ that is NOT included (omitted) in the PolicyTable group(s) assigned to the appli
 SDL must:  
 return DISALLOWED, success:false to this mobile app  
 
-5.  
+#### 5.  
 In case mobile application already subscribed on a single or multiple `<vehicleData>`  
 
 and sends SubscribeVehicleData_request with all `<vehicleData>` subscribed by the application before  
@@ -51,7 +51,7 @@ SDL must:
 - not transfer a resuest to HMI  
 - respond with (IGNORED, success:false {`<vehicleData>`: DATA_ALREADY_SUBSCRIBED} ) to mobile app 
 
-6.  
+#### 6.  
 In case mobile application sends valid SubscribeVehicleData_request 
 
 trying to subscribe the parameter the application has already subscribed for (even if the request contains at least one non-subscribed parameter)
@@ -64,7 +64,7 @@ SDL must:
 
 _Important Note: success:true and resultCode: IGNORED is applicabe for general_result_Code_from_HMI SUCCESS/WARNINGS, otherwise success:false and resultCode: general_result_Code_from_HMI must be returned to mobile application._  
 
-7.  
+#### 7.  
 	
 In case SubscribeVehicleData RPC is allowed by Policies with less than supported by protocol parameters  
 
@@ -75,7 +75,7 @@ SDL must:
 - send nothing to HMI  
 - return the individual results of DISALLOWED to response to mobile application + "ResultCode:DISALLOWED, success: false"  
 
-8.
+#### 8.
 In case mobile app sends SubscribeVehicleData_request to SDL  
 
 and this request is allowed by Policies for this mobile application  
@@ -87,7 +87,7 @@ SDL must:
 - respond with "DISALLOWED, success:false", "info: Requested parameters are disallowed by Policies" 
 - NOT transfer this request to HMI  
 
-9.
+#### 9.
 In case mobile application sends UnsubscribeVehicleData_request to SDL  
 
 and this request is allowed by Policies for this mobile application  

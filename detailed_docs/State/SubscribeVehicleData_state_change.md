@@ -18,9 +18,11 @@ SDL doesn’t transfer this request to HMI but subscribes this application inter
 State5: Both app_1 and app_2 are subscribed and receive VD change notification
 SDL has 2 (or more than 1) subscribed apps in its list
 
-UNSUBSCRIBE
-State1(initial): SDL has 2 (or more than 1) subscribed apps in its list
+UNSUBSCRIBE  
+State1(initial): SDL has 2 (or more than 1) subscribed apps in its list  
+
 Sate2: app_1 requests to unsubscribe from waypoints change notification 
-SDL more than one subscribed applications in SDL list
+SDL more than one subscribed applications in SDL list  
+
 State3: SDL must transfer the unsubscription request for app_1 to HMI 
 and send subscription request to HMI for app_2 (meaning for any other application which is the next one in the list of subscribed apps)
