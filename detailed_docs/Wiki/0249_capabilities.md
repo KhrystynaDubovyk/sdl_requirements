@@ -1,20 +1,5 @@
 ## Feature 1: As a mobile application, I want to get HMI capabilities from SDL after Ignition OFF/ON cycle so that I can interact with the HMI efficiently
 
-**Background**
-
-**Given** App requests HMI Capabilities with one of the following RPC
-  * UI.GetSupportedLanguages
-  * UI.GetCapabilities
-  * VR.GetSupportedLanguages
-  * VR.GetCapabilities
-  * TTS.GetSupportedLanguages
-  * TTS.GetCapabilities
-  * Buttons.GetCapabilities
-  * VehicleInfo.GetVehicleType
-  * RC.GetCapabilities
-  * UI.GetLanguage
-  * VR.GetLanguage
-  * TTS.GetLanguage
 #### Scenario 1: SDL Provides HMI capabilities persisted in `HMICapabilitiesCacheFile`
 
 **Given** App registers after Ignition OFF/ON cycle
@@ -28,7 +13,7 @@
 
 #### Scenario 2: SDL creates `HMICapabilitiesCacheFile` in case it is not present in `AppStorageFolder` in _SmartDeviceLink.ini_ 
 
-**When** SDL checks `HMICapabilitiesCacheFile` and variable is null/empty in [smartDeviceLink.ini](https://github.com/smartdevicelink/sdl_core/blob/master/src/appMain/smartDeviceLink.ini)  
+**When** SDL checks `HMICapabilitiesCacheFile` and variable is NOT null/empty in [smartDeviceLink.ini](https://github.com/smartdevicelink/sdl_core/blob/master/src/appMain/smartDeviceLink.ini)  
 
 **Then** SDL must create `HMICapabilitiesCacheFile` file  
 
@@ -47,7 +32,7 @@
 
 **Given**  Receiving HMI response for any of the UI/VR/TTS/Buttons/VehicleInfo/Navigation/RC capabilities
 
-**When** SDL checks if `HMICapabilitiesCacheFile` file already has the data set received in HMI response` and `HMICapabilitiesCacheFile` file does not have the data set received in HMI response
+**When** SDL checks if `HMICapabilitiesCacheFile` file already has the data set received in HMI response and `HMICapabilitiesCacheFile` file does not have the data set received in HMI response
 
 **Then** SDL writes the HMI response data to `HMICapabilitiesCacheFile` file  
 **And** SDL does not send corresponding requests to get HMI capabilities to HMI for subsequent ignition cycles, follow the rest of launch sequence requests/notifications as applicable.  
@@ -55,7 +40,7 @@
 
 ---
 
-#### Scenario 5:  SDL continues launching sequence if capabilities sent fom HMI are already present in `HMICapabilitiesCacheFile` file
+#### Scenario 5:  SDL does not overwrite the capabilities sent from HMI if they are already present in `HMICapabilitiesCacheFile` file
 
 **Given**  Receiving HMI response for any of the UI/VR/TTS/Buttons/VehicleInfo/Navigation/RC capabilities
 
@@ -94,13 +79,12 @@
 
 ### Scenario 1: SDL regenerates `HMICapabilitiesCacheFile` file when system SW version changes
 
-**Given** App sends RAI after HMI SW update 
+**Given** HMI sends BC.GetSystemInfo(`ccpu_version`) response to SDL 
 
 **When** SDL's local `ccpu_version` does not match with received from BC.GetSystemInfo(`ccpu_version`)
 
 **Then** SDL must delete `HMICapabilitiesCacheFile`  
 **And** SDL must send `GetCapabilities` requests for each interface (VR, TTS, UI, etc) to HMI and persist the responses received from HMI to `HMICapabilitiesCacheFile`  
-**And** SDL must set `IsHMICooperating` to true when HMI has responded to all the HMI capabilities requests  
 **And** SDL must respond to all pending RAI requests from mobile applications
 
 ---
@@ -111,8 +95,7 @@
 **When** HMI does not send response for one ore more `GetCapabilities` requests or HMI sends errors
 
 **Then** SDL must fall back to default HMI Capabilities  
-**And** SDL must NOT persist those capabilities in cache  
-**And** SDL must set `IsHMICooperating` to true  
+**And** SDL must persist those capabilities in cache  
 **And** SDL must respond to all pending RAI requests from mobile applications
 
 ## Resources
